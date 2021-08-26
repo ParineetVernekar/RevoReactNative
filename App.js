@@ -7,7 +7,7 @@ import OTPScreen from './OTPScreen';
 import LandingScreen from './LandingScreen';
 import AuthContext from './AuthContext';
 import { View , Text } from 'react-native'
-import BarcodeScanner from './BarcodeScanner';
+import CustomBarcodeScanner from './BarcodeScanner';
 import AccountScreen from './AccountsScreen';
 import WebViewModal from './WebViewModal';
 const RootStack = createNativeStackNavigator();
@@ -125,7 +125,7 @@ function RootStackScreen() {
               headerLargeTitle: true
             }}
              />
-              <RootStack.Screen name="BarcodeScanner" component={BarcodeScanner} options={{
+              <RootStack.Screen name="BarcodeScanner" component={CustomBarcodeScanner} options={{
               headerTitle: "My Bottles",
               headerLargeTitle: true
             }}
