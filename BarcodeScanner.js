@@ -17,6 +17,7 @@ export default function CustomBarcodeScanner(){
   
   function hi(){
     console.log("HEYO")
+    alert('SCANNNEDDD')
   }
 
   if (hasPermission === null) {
