@@ -7,7 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import tree from './assets/tree.png'
 import AddNewBottle from './AddNewBottle';
 
-export default function LandingScreen({ navigation }) {
+export default function LandingScreen ({ navigation }) {
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
     return (
