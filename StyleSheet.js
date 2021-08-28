@@ -5,12 +5,13 @@ const styles =  StyleSheet.create({
       justifyContent: 'flex-start',
       padding: 15,
       // paddingTop: 100,
-            marginBottom:40
+            marginBottom:40,
 
     }, separatorStyle:{
       height: 2,
       backgroundColor: '#85C1A3',
       width: Dimensions.get('window').width,
+      maxWidth: 500
       // marginBottom: 15
     },
     revoText: {
