@@ -4,7 +4,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { styles } from './StyleSheet';
 import { Camera } from 'expo-camera';
 
-export default function CustomBarcodeScanner(){
+export default function CustomBarcodeScanner({navigation}){
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
 
@@ -15,9 +15,20 @@ export default function CustomBarcodeScanner(){
     })();
   }, []);
   
-  function hi(){
-    console.log("HEYO")
-    alert('SCANNNEDDD')
+   const handleBarCodeScanned = ({ type, data }) => {
+
+    let barcodeType = type;
+    let barcodeData = data;
+   console.log(barcodeData)
+   console.log(barcodeType)
+   if (barcodeData.includes("?c=")){
+    console.log()
+    var index = barcodeData.indexOf('?c=')
+    var bottleCode = barcodeData.substring(index+3)
+    console.log(bottleCode)
+    alert(`Bottle ${bottleCode} has been scanned!`);
+}
+
   }
 
   if (hasPermission === null) {
@@ -29,7 +40,7 @@ export default function CustomBarcodeScanner(){
   return (
     <View style={{ flex: 1 }}>
       <Camera style={{ flex: 1 }} type={type}
-      onBarCodeScanned={hi}
+      onBarCodeScanned={handleBarCodeScanned}
       
       barCodeScannerSettings={{
         barCodeTypes: [BarCodeScanner.Constants.BarCodeType.qr],

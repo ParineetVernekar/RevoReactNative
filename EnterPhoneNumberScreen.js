@@ -26,7 +26,8 @@ export default function EnterPhoneNumberScreen({ navigation }) {
               onChangeText(text);
             }}
             autoFocus
-            
+            // textInputStyle={{backgroundColor:'green', borderWidth:0}}
+            textInputProps={{maxLength:10}}
             textContainerStyle={styles.enterPhoneNumber}
           />
           <Divider style={styles.enterPhoneNumberDividerStyle} />

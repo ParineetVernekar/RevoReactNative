@@ -16,7 +16,8 @@ export default function LandingScreen({ navigation }) {
         colors={['#ffffff', '#EBF6F7']}
         style={styles.background}
       >
-        <Image style={styles.tinyLogo} source={require('./assets/tree.png')} />
+        <Image style={styles.tinyLogo} source={require('./assets/landingPage.png')} /> 
+        {/* <Image style={styles.tinyLogo} source={{uri:"https://revo-test.vendsmart.tech/images/bottle-lg.png"}} /> */}
         <SafeAreaView style={styles.container}>
 
         <View style={styles.container}>

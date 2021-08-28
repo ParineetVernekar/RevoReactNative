@@ -63,10 +63,24 @@ const styles =  StyleSheet.create({
       marginVertical: 3
     },
     tinyLogo: {
+      // zIndex: -1,
+      // position: "absolute",
+      // alignSelf: "flex-end",
+      // right:-50,
+      // // top: 60,
+      // // right:-190,
+      width: Dimensions.get('window').width / 1.5,
+      // // width: 400,
+      // height: 350,
+      height: Dimensions.get('window').height / 2,
+      // resizeMode:'contain',
+      // borderColor:'red',
+      // borderWidth: 1,
       zIndex: -1,
       position: "absolute",
       alignSelf: "flex-end",
       top: 30,
+
     },
     addBottleSubText: {
       color: '#2FBB89',
@@ -81,12 +95,18 @@ const styles =  StyleSheet.create({
       justifyContent: 'center',
       shadowColor: "gray",
       shadowRadius: 2,
-      shadowOffset: { width: -1, height: 2 },
+      shadowOffset: { width: 0, height: 1 },
       shadowOpacity: 1,
       width: Dimensions.get('window').width - 40,
       marginTop: 15,
       maxWidth: 400,
       alignSelf:'center'
+
+    },buttonImage:{
+      resizeMode:'contain',
+      width: 40,
+      height: 40,
+      alignSelf: "flex-end",
 
     },
     addBottleText: {
@@ -100,8 +120,9 @@ const styles =  StyleSheet.create({
     enterPhoneNumber: {
       width: Dimensions.get('window').width - 40,
       backgroundColor: "#ffffff",
-      borderRadius: 5,
-      height: 60 
+      // borderRadius: 100,
+padding:10,
+      height: 60
   
     }, modalView: {
       flex: 1
@@ -130,6 +151,10 @@ const styles =  StyleSheet.create({
       opacity: 1
     },verifyPhoneNumberButtonBackgroundDisabled:{
       opacity: 0.5
+    },
+    map:{
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height
     }
   });
   
@@ -199,9 +224,12 @@ const styles =  StyleSheet.create({
               fontStyle:'italic'
           },
           treeCentralImage:{
-              position:'absolute',
+            position:'absolute',
             top: 240,
-            alignSelf:'center'
+            alignSelf:'center',
+            width: 110, 
+            height:90,
+            resizeMode:'contain'
           }
   })
 
@@ -229,9 +257,12 @@ const styles =  StyleSheet.create({
     },
     treeImage:{
       position:'absolute',
-    top: 215,
+    top: 240,
     alignSelf:'flex-end',
-    right:15
+    right:15,
+    width: 90, 
+    height:80,
+    resizeMode:'contain'
   },
   accountEndButtons:{
     color:'#3E4743',
@@ -245,8 +276,40 @@ const styles =  StyleSheet.create({
     width: Dimensions.get('window').width  -30,
     height: 2,
     backgroundColor:'#85C1A3'
+  },
+  hippo:{
+    width:200,
+    height: 150,
+    resizeMode:'contain',
+    alignSelf: "center",
+    marginTop:5
+
+
   }
   })
-
-  export {styles, homeStyles, accountStyle}
+  const bottleDetailStyles =  StyleSheet.create({
+    container:{
+      flex:1
+    },
+    innerView:{
+      backgroundColor:'white',
+      borderRadius: 20,
+      flex:0.4,
+      margin:15,
+      padding:20,
+      shadowColor: "gray",
+      shadowRadius: 4,
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: 1,
+    },
+    makerText:{
+      fontSize:13,
+      color: '#85C1A3'
+    },
+    textContainer:{
+      padding:3,
+      flexShrink:1
+    }
+  })
+  export {styles, homeStyles, accountStyle, bottleDetailStyles}
 

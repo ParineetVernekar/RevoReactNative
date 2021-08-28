@@ -10,6 +10,12 @@ import { View , Text } from 'react-native'
 import CustomBarcodeScanner from './BarcodeScanner';
 import AccountScreen from './AccountsScreen';
 import WebViewModal from './WebViewModal';
+import BottleDetailsScreen from './BottleDetailsScreen';
+import FindRefillStationScreen from './FindRefillStationScreen';
+import { LogBox } from 'react-native';
+
+// Ignore log notification by message:
+// LogBox.ignoreLogs(['VirtualizedLists should never be nested inside plain ScrollViews with the same orientation - use another VirtualizedList-backed container instead.']);
 const RootStack = createNativeStackNavigator();
 
 function SplashScreen() {
@@ -135,7 +141,11 @@ function RootStackScreen() {
               headerLargeTitle: true
             }}
              />
-              
+               <RootStack.Screen name="FindRefillStation" component={FindRefillStationScreen} options={{
+              headerTitle: "FindRefillStation",
+              headerLargeTitle: true
+            }}
+             />
       <RootStack.Group screenOptions={{ presentation: 'modal' }}>
              <RootStack.Screen name="HelpModal" component={WebViewModal} options={{
               headerTitle: "Help",
@@ -148,8 +158,14 @@ function RootStackScreen() {
             }}
              />
              <RootStack.Screen name="LearnMoreModal" component={WebViewModal} options={{
-              headerTitle: "LearnMore",
+              headerTitle: "Learn More",
               headerLargeTitle: true
+            }}
+             />
+              <RootStack.Screen name="BottleDetailsModal" component={BottleDetailsScreen} options={{
+              headerTitle: "Bottle Details",
+              headerLargeTitle: true,
+
             }}
              />
       </RootStack.Group>

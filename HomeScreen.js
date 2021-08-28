@@ -14,8 +14,20 @@ import CustomCircularProgress from './CustomCircularProgress';
 import { StatusBar } from 'expo-status-bar';
 import AddNewBottle from './AddNewBottle';
 import FindRefillStation from './FindRefillStation';
+import { useNavigation } from '@react-navigation/native';
 
-const Item = ({ item }) => (
+function Item ({ item })  {
+    const navigation = useNavigation(); // navigation hook
+return(
+    <TouchableOpacity
+        onPress={()=>{
+            // alert(`Hey ${item.name}`)
+            navigation.navigate('BottleDetailsModal', {
+                bottle: item
+            })
+        }
+        }
+    >
     <View style={homeStyles.item}>
         <View style={homeStyles.itemSubView}>
             <Image style={{ width: 69, height: 134 }} source={{
@@ -29,26 +41,29 @@ const Item = ({ item }) => (
             </View>
         </View>
     </View>
-);
+    </TouchableOpacity>
+)
+};
 export default function HomeScreen({ route, navigation }) {
     const { signOut } = React.useContext(AuthContext);
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
-          headerRight: () => (
-            <TouchableOpacity
-            onPress={() => navigation.navigate('AccountScreen')}
-            >
-<View style={styles.container}>
-      <FontAwesome5 name="user" size={25} />
-    </View>           
-     </TouchableOpacity>
-          ),
+            headerRight: () => (
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('AccountScreen')}
+                >
+                    <View style={{ margin: 15 }}
+                    >
+                        <FontAwesome5 name="user" size={25} />
+                    </View>
+                </TouchableOpacity>
+            ),
         });
-      }, [navigation]);
+    }, [navigation]);
 
     const renderItem = ({ item }) => (
-        <Item item={item} />
+        <Item item={item} navigation={navigation} />
     );
 
     return (
@@ -80,16 +95,16 @@ export default function HomeScreen({ route, navigation }) {
                         renderItem={renderItem}
                         keyExtractor={item => item.bottleId}
                     />
-                                        <Divider style={styles.separatorStyle} />
+                    <Divider style={styles.separatorStyle} />
 
                     <View style={homeStyles.circularProgress}>
                         <CustomCircularProgress fill={4} />
                     </View>
-                    <AddNewBottle navigation={navigation} destination={'BarcodeScanner'}/>
-                    <FindRefillStation  navigation={navigation} destination={'BarcodeScanner'} />
+                    <AddNewBottle navigation={navigation} destination={'BarcodeScanner'} />
+                    <FindRefillStation navigation={navigation} destination={'FindRefillStation'} />
                     <StatusBar style="auto" />
-        <View style={{height:40}}></View>
-        
+                    <View style={{ height: 40 }}></View>
+
                 </View>
             </ScrollView>
         </LinearGradient>

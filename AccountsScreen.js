@@ -6,6 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import AddNewBottle from './AddNewBottle';
 import AuthContext from './AuthContext';
 import { WebView } from 'react-native-webview';
+import { SvgUri } from 'react-native-svg';
 
 import FindRefillStation from './FindRefillStation';
 export default function AccountScreen({ navigation }) {
@@ -30,7 +31,12 @@ export default function AccountScreen({ navigation }) {
         >
             <ScrollView>
                 <View style={accountStyle.container}>
-                    <Image source={require('./assets/settingsProfile.png')} />
+                {/* <SvgUri
+    uri="https://revo-test.vendsmart.tech/hippo.svg"
+  /> */}
+   <Image                          
+      style={accountStyle.hippo}
+ source={require('./assets/settingsProfile.png')}/>
                     <Text style={accountStyle.phoneNumber}>+44 748 389 7140</Text>
 
                     <FindRefillStation destination={'BarcodeScanner'} navigation={navigation} />

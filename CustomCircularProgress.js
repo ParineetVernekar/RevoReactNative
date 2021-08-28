@@ -1,7 +1,8 @@
 import { View, Text, Button, FlatList, Image, ScrollView, Circle } from 'react-native';
 import React from 'react';
 import CircularProgress from './CircularProgress';
-import { homeStyles } from './StyleSheet';
+import { homeStyles, styles } from './StyleSheet';
+import { SvgUri } from 'react-native-svg';
 export default function CustomCircularProgress(props) {
     return (
         <View>
@@ -31,7 +32,13 @@ export default function CustomCircularProgress(props) {
                     )
                 }
             </CircularProgress>
-            <Image style={homeStyles.treeCentralImage} source={require('./assets/treeCentral.png')} />
+            {/* <Image style={styles.treeCentralImage} source={require('./assets/treeCentral.png')} /> */}
+            <Image style={homeStyles.treeCentralImage} source={require('./assets/treeCentral.png')} /> 
+
+            {/* <SvgUri
+                            style={homeStyles.treeCentralImage}
+    uri="https://revo-test.vendsmart.tech/treeicon.svg"
+  /> */}
         </View>
     )
 }
