@@ -54,6 +54,8 @@ export default function HomeScreen({ route, navigation }) {
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 717px)'
       })
+      const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+
     React.useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
@@ -98,19 +100,19 @@ export default function HomeScreen({ route, navigation }) {
                     </View>
 
 
-                    <View style={isDesktopOrLaptop ?{ flexDirection: 'row' } : null}>
+                    <View style={isDesktopOrLaptop || !isPortrait ?{ flexDirection: 'row' } : null}>
                     <FlatList
                         data={bottleData}
                         renderItem={renderItem}
                         keyExtractor={item => item.bottleId}
                     />
-                    {isDesktopOrLaptop ? null : <Divider style={styles.separatorStyle} /> }
+                    {isDesktopOrLaptop || !isPortrait ? null : <Divider style={styles.separatorStyle} /> }
                     
         <View>
-                    <View style={isDesktopOrLaptop ? homeStyles.circularProgressDesktop : homeStyles.circularProgress}>
+                    <View style={isDesktopOrLaptop || !isPortrait ? homeStyles.circularProgressDesktop : homeStyles.circularProgress}>
                         <CustomCircularProgress fill={4} />
                     </View>
-                    <View style={ isDesktopOrLaptop ? {paddingRight:20} : null}>
+                    <View style={ isDesktopOrLaptop || !isPortrait ? {paddingRight:20} : null}>
 
                     <AddNewBottle navigation={navigation} destination={'BarcodeScanner'} />
                     <FindRefillStation navigation={navigation} destination={'FindRefillStation'} />

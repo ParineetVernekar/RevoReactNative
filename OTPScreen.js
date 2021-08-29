@@ -9,7 +9,7 @@ export default function OTPScreen({ route, navigation }) {
 
     const { phoneNumber } = route.params;
     const [otp, onChangeOtp] = React.useState('');
-    const buttonDisabled = otp.length == 0 ? styles.verifyPhoneNumberButtonBackgroundDisabled : styles.verifyPhoneNumberButtonBackground
+    const buttonDisabled = otp.length < 4 ? styles.verifyPhoneNumberButtonBackgroundDisabled : styles.verifyPhoneNumberButtonBackground
 
     return (
       <KeyboardAvoidingView behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
@@ -21,7 +21,7 @@ export default function OTPScreen({ route, navigation }) {
             onChangeText={text => onChangeOtp(text)}
             value={otp}
             autoFocus
-            placeholder="Enter OTP"
+            placeholder="Enter 4 digit OTP"
             style={styles.enterPhoneNumber}
             keyboardType="numeric"
             maxLength={4}
@@ -33,7 +33,7 @@ export default function OTPScreen({ route, navigation }) {
           <View>
             <TouchableOpacity style={[buttonDisabled, styles.verifyPhoneNumberButton]}
            onPress={() => signIn({ phoneNumber, otp })}
-              disabled={otp.length == 0 ? true : false}
+              disabled={otp.length < 4 ? true : false }
             >
               <Text style={styles.verifyPhoneNumberButtonText}>VERIFY</Text>
             </TouchableOpacity>

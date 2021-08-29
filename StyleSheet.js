@@ -97,15 +97,15 @@ const styles =  StyleSheet.create({
     tinyLogo: {
       // zIndex: -1,
       // position: "absolute",
-      // alignSelf: "flex-end",
-      // right:-50,
+      alignSelf: "flex-end",
+      right:-120,
       // // top: 60,
       // // right:-190,
-      width: Dimensions.get('window').width / 1.5,
+      width: 500,
       // // width: 400,
       // height: 350,
-      height: Dimensions.get('window').height / 2,
-      // resizeMode:'contain',
+      height: 400,
+      resizeMode:'contain',
       // borderColor:'red',
       // borderWidth: 1,
       zIndex: -1,
@@ -205,6 +205,8 @@ maxWidth: 600
         justifyContent:'center',
         alignSelf: 'center',
         minWidth: Dimensions.get('window').width,
+        width: Dimensions.get('window').width,
+
         padding: 4
     },
       homeBannerItemContainer:{
@@ -249,7 +251,7 @@ maxWidth: 600
             shadowColor: "gray",
             shadowRadius: 3,
             shadowOffset: { width: 0, height: 0 },
-            shadowOpacity: 1,
+            shadowOpacity: 0.5,
             alignSelf:'center'
         },
         
@@ -312,7 +314,9 @@ maxWidth: 600
       shadowRadius: 2,
       shadowOffset: { width: 0, height: 1 },
       shadowOpacity: 0.5,
-      maxWidth:Dimensions.get('window').width,
+      width:Dimensions.get('window').width,
+      minWidth:Dimensions.get('window').width,
+
       alignSelf:'center'
     }, joinViewDesktop:{
       backgroundColor:'#ffffff',
@@ -324,6 +328,7 @@ maxWidth: 600
       shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 1,
       maxWidth:360,
+      width:360,
       // margin: 20,
       marginHorizontal:20,
       borderRadius:15,
