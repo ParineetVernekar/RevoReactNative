@@ -21,7 +21,8 @@ const styles =  StyleSheet.create({
       backgroundColor: '#85C1A3',
       width: Dimensions.get('window').width,
       maxWidth: 400,
-      alignSelf:'center'
+      alignSelf:'center',
+      marginTop:15
 
       // marginBottom: 15
     },
@@ -226,7 +227,8 @@ maxWidth: 600
           flexDirection:'row',
         //   width: Dimensions.get('window').width - 40
       }, name:{
-        flexShrink:1
+        flexShrink:1,
+        marginLeft:10
 
       },
       circularProgress:{

@@ -36,7 +36,7 @@ export default function AccountScreen({ navigation }) {
         >
             <ScrollView>
                 <View style={accountStyle.container}>
-                    <View style={isDesktopOrLaptop || !isPortrait ?{flexDirection:'row'}:null}>
+                    <View style={isDesktopOrLaptop || (!isPortrait && isDesktopOrLaptop) ?{flexDirection:'row'}:null}>
                         <View style={{alignItems:'center'}}>
                             <Image
                                 style={accountStyle.hippo}
@@ -46,10 +46,10 @@ export default function AccountScreen({ navigation }) {
                             <FindRefillStation destination={'BarcodeScanner'} navigation={navigation} />
                             <AddNewBottle destination={'BarcodeScanner'} navigation={navigation} />
                         </View>
-            {isDesktopOrLaptop || !isPortrait ? null : <Divider style={styles.separatorStyle} />}
+            {isDesktopOrLaptop || (!isPortrait && isDesktopOrLaptop) ? null : <Divider style={styles.separatorStyle} />}
                         
 
-                        <View style={isDesktopOrLaptop || !isPortrait ? accountStyle.joinViewDesktop : accountStyle.joinView}>
+                        <View style={isDesktopOrLaptop || (!isPortrait && isDesktopOrLaptop) ? accountStyle.joinViewDesktop : accountStyle.joinView}>
                             <View style={{ flexDirection: 'row', paddingBottom: 10 }}>
                                 <Text style={accountStyle.joinText}>Join us in the </Text>
                                 <Text style={[accountStyle.joinText, { color: '#2FBB89', fontWeight: 'bold' }]}> #ReuseRevolution</Text>
@@ -78,7 +78,7 @@ export default function AccountScreen({ navigation }) {
 
                     </View>
 
-                    <View style={ isDesktopOrLaptop || !isPortrait ? {  alignSelf:'center', flexDirection:'row', } : {alignSelf:'center'}}>
+                    <View style={ isDesktopOrLaptop || (!isPortrait && isDesktopOrLaptop) ? {  alignSelf:'center', flexDirection:'row', } : {alignSelf:'center'}}>
                         <TouchableOpacity
                             onPress={() => {
                                 loadURL('https://expo.dev')

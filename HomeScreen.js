@@ -100,19 +100,19 @@ export default function HomeScreen({ route, navigation }) {
                     </View>
 
 
-                    <View style={isDesktopOrLaptop || !isPortrait ?{ flexDirection: 'row' } : null}>
+                    <View style={isDesktopOrLaptop || (!isPortrait && isDesktopOrLaptop) ? { flexDirection: 'row' } : null}>
                     <FlatList
                         data={bottleData}
                         renderItem={renderItem}
                         keyExtractor={item => item.bottleId}
                     />
-                    {isDesktopOrLaptop || !isPortrait ? null : <Divider style={styles.separatorStyle} /> }
+                    {isDesktopOrLaptop || (!isPortrait && isDesktopOrLaptop) ? null : <Divider style={styles.separatorStyle} /> }
                     
         <View>
-                    <View style={isDesktopOrLaptop || !isPortrait ? homeStyles.circularProgressDesktop : homeStyles.circularProgress}>
+                    <View style={isDesktopOrLaptop || (!isPortrait && isDesktopOrLaptop) ? homeStyles.circularProgressDesktop : homeStyles.circularProgress}>
                         <CustomCircularProgress fill={4} />
                     </View>
-                    <View style={ isDesktopOrLaptop || !isPortrait ? {paddingRight:20} : null}>
+                    <View style={ isDesktopOrLaptop || (!isPortrait && isDesktopOrLaptop) ? {paddingRight:20} : null}>
 
                     <AddNewBottle navigation={navigation} destination={'BarcodeScanner'} />
                     <FindRefillStation navigation={navigation} destination={'FindRefillStation'} />
