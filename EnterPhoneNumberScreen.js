@@ -16,7 +16,9 @@ export default function EnterPhoneNumberScreen({ navigation }) {
         style={styles.modalView}>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           
+          <View style={{flexDirection:'row'}}>
           <Text style={styles.enterPhoneNumberInfoText}>Enter phone number</Text>
+          </View>
           <PhoneInput
             // ref={phoneInput}
             defaultValue={text}
@@ -29,6 +31,8 @@ export default function EnterPhoneNumberScreen({ navigation }) {
             // textInputStyle={{backgroundColor:'green', borderWidth:0}}
             textInputProps={{maxLength:10}}
             textContainerStyle={styles.enterPhoneNumber}
+            containerStyle={styles.enterPhoneNumber}
+
           />
           <Divider style={styles.enterPhoneNumberDividerStyle} />
   

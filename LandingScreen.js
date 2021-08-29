@@ -1,33 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View, Dimensions, TouchableOpacity, Image, SafeAreaView} from 'react-native';
+import { Text, View, Dimensions, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import { Divider } from 'react-native-paper';
 import { styles } from './StyleSheet'
 import { LinearGradient } from 'expo-linear-gradient';
 import tree from './assets/tree.png'
 import AddNewBottle from './AddNewBottle';
+import { useMediaQuery } from 'react-responsive'
 
-export default function LandingScreen ({ navigation }) {
-    const windowWidth = Dimensions.get('window').width;
-    const windowHeight = Dimensions.get('window').height;
-    return (
-      <LinearGradient
-        // Background Linear Gradient
-        colors={['#ffffff', '#EBF6F7']}
-        style={styles.background}
-      >
-        <Image style={styles.tinyLogo} source={require('./assets/landingPage.png')} /> 
-        {/* <Image style={styles.tinyLogo} source={{uri:"https://revo-test.vendsmart.tech/images/bottle-lg.png"}} /> */}
-        <SafeAreaView style={styles.container}>
+export default function LandingScreen({ navigation }) {
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1024px)'
+  })
 
-        <View style={styles.container}>
+  return (
+    <LinearGradient
+      // Background Linear Gradient
+      colors={['#ffffff', '#EBF6F7']}
+      style={styles.background}
+    >
+      <Image style={styles.tinyLogo} source={require('./assets/landingPage.png')} />
+      {/* <Image style={styles.tinyLogo} source={{uri:"https://revo-test.vendsmart.tech/images/bottle-lg.png"}} /> */}
+      <SafeAreaView style={styles.container}>
+
+        <View style={isDesktopOrLaptop ? styles.containerDesktop : styles.container}>
           <View style={styles.textContainer}>
-            <Text style={styles.revoText}>REVO</Text>
+            <Text style={isDesktopOrLaptop ? styles.revoTextDesktop : styles.revoText}>REVO</Text>
             <Text style={styles.homeSubText}>Sustainable Cosmetics</Text>
-  
+
             <Divider style={styles.dividerStyle} />
           </View>
-          <Text style={styles.mainText}>Sign up, refill,
+          <Text style={isDesktopOrLaptop ? styles.mainTextDesktop : styles.mainText}>Sign up, refill,
             recycle, plant a tree, and save earth</Text>
           <View style={styles.buttonContent}>
             <TouchableOpacity
@@ -39,12 +44,14 @@ export default function LandingScreen ({ navigation }) {
             <Text style={styles.signUpSubText}>(Seriously, we will plant a tree when you sign up)</Text>
           </View>
           <Divider style={styles.buttonDivider} />
-         <AddNewBottle navigation={navigation} destination={'EnterPhoneNumberModal'}/>
+          {/* <View style={styles.addNewBottleContainer}>
+          <AddNewBottle navigation={navigation} destination={'EnterPhoneNumberModal'} />
+         </View> */}
           <StatusBar style="auto" />
 
         </View>
-        </SafeAreaView>
+      </SafeAreaView>
 
-      </LinearGradient>
-    )
-  }
+    </LinearGradient>
+  )
+}

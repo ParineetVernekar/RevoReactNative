@@ -15,9 +15,14 @@ import { StatusBar } from 'expo-status-bar';
 import AddNewBottle from './AddNewBottle';
 import FindRefillStation from './FindRefillStation';
 import { useNavigation } from '@react-navigation/native';
+import { useMediaQuery } from 'react-responsive'
+
 
 function Item ({ item })  {
     const navigation = useNavigation(); // navigation hook
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 1024px)'
+      })
 return(
     <TouchableOpacity
         onPress={()=>{
@@ -28,7 +33,7 @@ return(
         }
         }
     >
-    <View style={homeStyles.item}>
+    <View style={[homeStyles.item, isDesktopOrLaptop ? homeStyles.itemDesktop : null]}>
         <View style={homeStyles.itemSubView}>
             <Image style={{ width: 69, height: 134 }} source={{
                 uri: "https://d1qk4sbf0ixo5r.cloudfront.net/thumbnails/Alberto_Conditioner-a189d6fb-14af-42e1-abb1-58371d8b0dd4-5c8f6649-fc44-43bf-a0a7-cdd575f9379e.png",
@@ -46,7 +51,9 @@ return(
 };
 export default function HomeScreen({ route, navigation }) {
     const { signOut } = React.useContext(AuthContext);
-
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 717px)'
+      })
     React.useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
@@ -90,18 +97,27 @@ export default function HomeScreen({ route, navigation }) {
                         </View>
                     </View>
 
+
+                    <View style={isDesktopOrLaptop ?{ flexDirection: 'row' } : null}>
                     <FlatList
                         data={bottleData}
                         renderItem={renderItem}
                         keyExtractor={item => item.bottleId}
                     />
-                    <Divider style={styles.separatorStyle} />
-
-                    <View style={homeStyles.circularProgress}>
+                    {isDesktopOrLaptop ? null : <Divider style={styles.separatorStyle} /> }
+                    
+        <View>
+                    <View style={isDesktopOrLaptop ? homeStyles.circularProgressDesktop : homeStyles.circularProgress}>
                         <CustomCircularProgress fill={4} />
                     </View>
+                    <View style={ isDesktopOrLaptop ? {paddingRight:20} : null}>
+
                     <AddNewBottle navigation={navigation} destination={'BarcodeScanner'} />
                     <FindRefillStation navigation={navigation} destination={'FindRefillStation'} />
+                    </View>
+                    </View>
+                    </View>
+
                     <StatusBar style="auto" />
                     <View style={{ height: 40 }}></View>
 

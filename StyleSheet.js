@@ -1,22 +1,36 @@
 import { StyleSheet, Dimensions, Platform } from 'react-native';
+import { useMediaQuery } from 'react-responsive'
+
 const styles =  StyleSheet.create({
     container: {
-      flex: 1,
+      flex: 2,
       justifyContent: 'flex-start',
       padding: 15,
       // paddingTop: 100,
             marginBottom:40,
+            
 
-    }, separatorStyle:{
+    },
+    containerDesktop:{
+        flex: 1,
+        justifyContent: 'flex-start',
+        padding:50
+    },
+     separatorStyle:{
       height: 2,
       backgroundColor: '#85C1A3',
       width: Dimensions.get('window').width,
-      maxWidth: 500
+      maxWidth: 400,
+      alignSelf:'center'
+
       // marginBottom: 15
     },
     revoText: {
       fontSize: 50,
     },
+    revoTextDesktop: {
+        fontSize: 70
+          },
     homeSubText: {
       fontSize: 15,
       paddingBottom: 15
@@ -28,11 +42,21 @@ const styles =  StyleSheet.create({
       width: 100,
       backgroundColor: "#85C1A3",
       height: 3,
+      maxWidth: 400
+
     },
     mainText: {
       fontSize: 40,
-      width: Dimensions.get('window').width / 2
+      width: Dimensions.get('window').width / 2,
+      maxWidth:400
+
     },
+    mainTextDesktop: {
+        fontSize: 50,
+        width: Dimensions.get('window').width / 2,
+        maxWidth:400,
+        paddingBottom:40
+      },
     button: {
       backgroundColor: "#FBA131",
       height: 60,
@@ -43,17 +67,23 @@ const styles =  StyleSheet.create({
       shadowOffset: { width: -1, height: 2 },
       shadowOpacity: 1,
       width: Dimensions.get('window').width - 40,
-    },
+      maxWidth: 600,
+      maxHeight:150
+    }, addNewBottleContainer:{
+      alignSelf:'flex-start'
+  },
     signUpButtonText: {
       fontSize: 20,
       textAlign: "center",
       color: "white",
   
     }, buttonContent: {
-      alignItems: "center"
-    }, signUpSubText: {
+      alignItems: "center",
+      alignSelf:'flex-start'      
+    },
+     signUpSubText: {
       paddingTop: 10,
-      fontStyle: "italic"
+      fontStyle: "italic",
     },
     background: {
       flex: 1,
@@ -61,7 +91,8 @@ const styles =  StyleSheet.create({
     buttonDivider: {
       height: 1,
       backgroundColor: '#85C1A3',
-      marginVertical: 3
+      marginVertical: 3,
+      maxWidth:600
     },
     tinyLogo: {
       // zIndex: -1,
@@ -96,11 +127,12 @@ const styles =  StyleSheet.create({
       justifyContent: 'center',
       shadowColor: "gray",
       shadowRadius: 2,
-      shadowOffset: { width: 0, height: 1 },
+      shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 1,
       width: Dimensions.get('window').width - 40,
       marginTop: 15,
-      maxWidth: 400,
+      maxWidth: 300,
+      minWidth:150,
       alignSelf:'center'
 
     },buttonImage:{
@@ -121,21 +153,25 @@ const styles =  StyleSheet.create({
     enterPhoneNumber: {
       width: Dimensions.get('window').width - 40,
       backgroundColor: "#ffffff",
+      alignSelf:'center',
       // borderRadius: 100,
 padding:10,
-      height: 60
-  
+height: 60,
+maxWidth: 600  
     }, modalView: {
       flex: 1
     }, enterPhoneNumberInfoText: {
-      alignSelf: "flex-start",
+      // alignSelf: "flex-start",
       fontSize: 25,
-      paddingLeft: 40
+      paddingLeft: 40,
+      maxWidth: 600  
     }, enterPhoneNumberDividerStyle: {
       height: 1,
       backgroundColor: '#85C1A3',
       width: Dimensions.get('window').width - 70,
-      marginVertical: 10
+      marginVertical: 10,
+      maxWidth:600
+
     }, 
     verifyPhoneNumberButton: {
       backgroundColor: '#85C1A3',
@@ -144,6 +180,8 @@ padding:10,
       height: 60,
       justifyContent: 'center',
       alignItems: 'center',
+      maxWidth: 600
+
     }, 
     verifyPhoneNumberButtonText: {
       fontSize: 30,
@@ -161,14 +199,14 @@ padding:10,
   
 
   const homeStyles = StyleSheet.create({
-      homeBanner:{
-        backgroundColor: "#000000",
-        flexDirection:'row',
-          justifyContent:'space-around',
-          alignSelf: 'center',
-          width: Dimensions.get('window').width,
-          padding: 4
-      },
+    homeBanner:{
+      backgroundColor: "#000000",
+      flexDirection:'row',
+        justifyContent:'center',
+        alignSelf: 'center',
+        minWidth: Dimensions.get('window').width,
+        padding: 4
+    },
       homeBannerItemContainer:{
           textAlign: 'center',
           alignItems:'center',
@@ -190,13 +228,32 @@ padding:10,
 
       },
       circularProgress:{
+        alignItems:'center',
+        backgroundColor:'white',
+          width:Dimensions.get('window').width,
+          height: 380,
+          paddingTop: 15,
+          alignSelf:'center'
+        }, circularProgressDesktop:{
           alignItems:'center',
           backgroundColor:'white',
             width:Dimensions.get('window').width,
-            height: 380,
-            paddingTop: 15
+            height: 365,
+            paddingTop: 15,
+            marginRight: 20,
+            marginTop: 10,
+
+            maxWidth:300,
+            borderRadius:15,
+        minWidth:150,
+            shadowColor: "gray",
+            shadowRadius: 3,
+            shadowOffset: { width: 0, height: 0 },
+            shadowOpacity: 1,
+            alignSelf:'center'
+        },
         
-        }, item: {
+        item: {
             backgroundColor: '#ffffff',
             padding: 20,
             marginVertical: 8,
@@ -208,6 +265,8 @@ padding:10,
             shadowOpacity: 1,
                     //   width: Dimensions.get('window').width - 40
     
+          }, itemDesktop:{
+            minWidth:500
           },
          
           maker:{
@@ -239,7 +298,8 @@ padding:10,
       color:'red',
       flex:1,
       alignContent:'center',
-      alignItems:'center'
+      alignItems:'center',
+      paddingHorizontal:20
     },
     phoneNumber:{
       fontSize:27
@@ -252,6 +312,24 @@ padding:10,
       shadowRadius: 2,
       shadowOffset: { width: 0, height: 1 },
       shadowOpacity: 0.5,
+      maxWidth:Dimensions.get('window').width,
+      alignSelf:'center'
+    }, joinViewDesktop:{
+      backgroundColor:'#ffffff',
+      alignItems:'flex-start',
+      alignSelf:'flex-start',
+      padding:20,
+      shadowColor: "gray",
+      shadowRadius: 2,
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: 1,
+      maxWidth:360,
+      // margin: 20,
+      marginHorizontal:20,
+      borderRadius:15,
+      alignSelf:'center',
+      height:330,
+      justifyContent:'space-between'
     },
     joinText:{
       fontSize: 20
@@ -276,7 +354,8 @@ padding:10,
     alignSelf:'center',
     width: Dimensions.get('window').width  -30,
     height: 2,
-    backgroundColor:'#85C1A3'
+    backgroundColor:'#85C1A3',
+    maxWidth:700
   },
   hippo:{
     width:200,
