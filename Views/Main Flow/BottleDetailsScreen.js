@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, FlatList, Image, ScrollView, Circle, TouchableOpacity } from 'react-native';
-import { bottleDetailStyles, styles } from './StyleSheet';
+import { bottleDetailStyles, styles } from '../../StyleSheet';
 import { FontAwesome5 } from '@expo/vector-icons';
 export default function BottleDetailsScreen({ route, navigation }) {
     const { bottle } = route.params;

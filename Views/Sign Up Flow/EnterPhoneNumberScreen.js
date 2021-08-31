@@ -1,16 +1,20 @@
 import React from 'react';
-import {  Text, View, TouchableOpacity,  KeyboardAvoidingView, Platform } from 'react-native';
+import {  Text, View, TouchableOpacity,  KeyboardAvoidingView, Platform, TextInput } from 'react-native';
 import { Divider } from 'react-native-paper';
-import { styles } from './StyleSheet'
+import { styles } from '../../StyleSheet'
 import { FontAwesome5 } from '@expo/vector-icons';
 import PhoneInput from "react-native-phone-number-input";
 
 export default function EnterPhoneNumberScreen({ navigation }) {
-    const [text, onChangeText] = React.useState('');
+    const [text, changeText] = React.useState('07');
   
 
     const buttonDisabled = text.length == 0 ? styles.verifyPhoneNumberButtonBackgroundDisabled : styles.verifyPhoneNumberButtonBackground
   
+  function isPhoneNumber(){
+    return false
+  }
+    
     return (
       <KeyboardAvoidingView behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
         style={styles.modalView}>
@@ -18,22 +22,45 @@ export default function EnterPhoneNumberScreen({ navigation }) {
           
           <View style={{flexDirection:'row'}}>
           <Text style={styles.enterPhoneNumberInfoText}>Enter phone number</Text>
+          </View> 
+          <View style={{flexDirection:'row', justifyContent:'center', margin:15, maxWidth: 600  
+}}>
+          <View style={{justifyContent:'center', alignItems:'flex-end', backgroundColor:'white', height: 60, width:60}}>
+            <Text>+44</Text>
           </View>
-          <PhoneInput
+          <TextInput
+            style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+            onChangeText={(text) => {
+              var filteredText = text.replace(/[- #*;,.<>\{\}\[\]\\\/]/gi, '')
+              var re = /^([0-9]+([0-9]+)+)$/
+              changeText(filteredText);
+            }}
+                        value={text}
+            autoFocus
+            placeholder="Enter phone number"
+            style={styles.enterPhoneNumber}
+            keyboardType="numeric"
+            maxLength={11}
+          />
+          </View>
+          {/* <PhoneInput
             // ref={phoneInput}
             defaultValue={text}
+            value={text}
             defaultCode="GB"
             layout="first"
             onChangeText={(text) => {
-              onChangeText(text);
+              var filteredText = text.replace(/[- #*;,.<>\{\}\[\]\\\/]/gi, '')
+              console.log(filteredText)
+              changeText(filteredText);
             }}
             autoFocus
             // textInputStyle={{backgroundColor:'green', borderWidth:0}}
             textInputProps={{maxLength:10}}
-            textContainerStyle={styles.enterPhoneNumber}
+            // textContainerStyle={styles.enterPhoneNumber}
             containerStyle={styles.enterPhoneNumber}
 
-          />
+          /> */}
           <Divider style={styles.enterPhoneNumberDividerStyle} />
   
           <View>
@@ -44,7 +71,7 @@ export default function EnterPhoneNumberScreen({ navigation }) {
                 })
               }
   
-              disabled={text.length == 0 ? true : false}
+              disabled={isPhoneNumber()}
             >
               <Text style={styles.verifyPhoneNumberButtonText}>VERIFY</Text>
             </TouchableOpacity>

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, ScrollView, TextInput, KeyboardAvoidingView, Platform, Image, Linking } from 'react-native';
 import { Divider } from 'react-native-paper';
-import { accountStyle, styles } from './StyleSheet';
+import { accountStyle, styles } from '../../StyleSheet';
 import { LinearGradient } from 'expo-linear-gradient';
-import AddNewBottle from './AddNewBottle';
-import AuthContext from './AuthContext';
+import AddNewBottle from '../Custom Components/AddNewBottle';
+import AuthContext from '../../AuthContext';
 import { WebView } from 'react-native-webview';
 import { SvgUri } from 'react-native-svg';
 import { useMediaQuery } from 'react-responsive'
 
-import FindRefillStation from './FindRefillStation';
+import FindRefillStation from '../Custom Components/FindRefillStation';
 export default function AccountScreen({ navigation }) {
     const { signOut } = React.useContext(AuthContext);
     const [helpView, setShowHelpView] = useState(false);
@@ -40,7 +40,7 @@ export default function AccountScreen({ navigation }) {
                         <View style={{alignItems:'center'}}>
                             <Image
                                 style={accountStyle.hippo}
-                                source={require('./assets/settingsProfile.png')} />
+                                source={require('./../../assets/settingsProfile.png')} />
                             <Text style={accountStyle.phoneNumber}>+44 748 389 7140</Text>
 
                             <FindRefillStation destination={'BarcodeScanner'} navigation={navigation} />
@@ -74,7 +74,7 @@ export default function AccountScreen({ navigation }) {
                                 <Text style={{ color: '#2FBB89', fontWeight: 'bold' }}>Learn more</Text>
                             </TouchableOpacity>
                         </View>
-                        <Image style={accountStyle.treeImage} source={require('./assets/treeCentral.png')} />
+                        <Image style={accountStyle.treeImage} source={require('./../../assets/treeCentral.png')} />
 
                     </View>
 

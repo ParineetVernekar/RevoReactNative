@@ -1,17 +1,17 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from './HomeScreen'
-import EnterPhoneNumberScreen from './EnterPhoneNumberScreen';
-import OTPScreen from './OTPScreen';
-import LandingScreen from './LandingScreen';
+import HomeScreen from './Views/Main Flow/HomeScreen'
+import EnterPhoneNumberScreen from './Views/Sign Up Flow/EnterPhoneNumberScreen';
+import OTPScreen from './Views/Sign Up Flow/OTPScreen';
+import LandingScreen from './Views/Sign Up Flow/LandingScreen';
 import AuthContext from './AuthContext';
 import { View , Text } from 'react-native'
-import CustomBarcodeScanner from './BarcodeScanner';
-import AccountScreen from './AccountsScreen';
+import CustomBarcodeScanner from './Views/Main Flow/BarcodeScanner';
+import AccountScreen from './Views/Main Flow/AccountsScreen';
 import WebViewModal from './WebViewModal';
-import BottleDetailsScreen from './BottleDetailsScreen';
-import FindRefillStationScreen from './FindRefillStationScreen';
+import BottleDetailsScreen from './Views/Main Flow/BottleDetailsScreen';
+import FindRefillStationScreen from './Views/Main Flow/FindRefillStationScreen';
 import { LogBox } from 'react-native';
 
 // Ignore log notification by message:

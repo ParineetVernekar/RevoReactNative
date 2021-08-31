@@ -2,10 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Text, View, Dimensions, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import { Divider } from 'react-native-paper';
-import { styles } from './StyleSheet'
+import { styles } from '../../StyleSheet'
 import { LinearGradient } from 'expo-linear-gradient';
-import tree from './assets/tree.png'
-import AddNewBottle from './AddNewBottle';
+import AddNewBottle from '../Custom Components/AddNewBottle';
 import { useMediaQuery } from 'react-responsive'
 
 export default function LandingScreen({ navigation }) {
@@ -21,7 +20,7 @@ export default function LandingScreen({ navigation }) {
       colors={['#ffffff', '#EBF6F7']}
       style={styles.background}
     >
-      <Image style={styles.tinyLogo} source={require('./assets/landingPage.png')} />
+      <Image style={styles.tinyLogo} source={require('./../../assets/landingPage.png')} />
       {/* <Image style={styles.tinyLogo} source={{uri:"https://revo-test.vendsmart.tech/images/bottle-lg.png"}} /> */}
       <SafeAreaView style={styles.container}>
 

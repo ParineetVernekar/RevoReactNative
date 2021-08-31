@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, Image, Platform } from 'react-native';
-import { styles } from './StyleSheet';
+import { styles } from '../../StyleSheet';
 import { SvgUri } from 'react-native-svg';
 
 export default function FindRefillStation({navigation, destination}){
@@ -24,7 +24,7 @@ export default function FindRefillStation({navigation, destination}){
                                 <Text style={styles.addBottleText}>Find a refill station near you</Text>
                             </View>
                          
-                            <Image style={styles.buttonImage} source={require('./assets/MapCellGlyph.png')} />
+                            <Image style={styles.buttonImage} source={require('../../assets/MapCellGlyph.png')} />
 
             </View>
                     </TouchableOpacity>

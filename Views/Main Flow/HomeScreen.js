@@ -1,19 +1,19 @@
 import React from 'react';
 import { View, Text, Button, FlatList, Image, ScrollView, Circle, TouchableOpacity } from 'react-native';
-import AuthContext from './AuthContext';
-import { homeStyles, styles } from './StyleSheet'
+import AuthContext from '../../AuthContext';
+import { homeStyles, styles } from '../../StyleSheet'
 import { LinearGradient } from 'expo-linear-gradient';
-import { bottleData } from './dataObjects';
+import { bottleData } from '../../Data/dataObjects';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 // import { CircularProgress } from 'react-native-circular-progress';
-import CircularProgress from './CircularProgress'
+import CircularProgress from '../Custom Components/CircularProgress'
 import { Divider } from 'react-native-paper';
 // import { CircularProgress } from 'react-native-circular-progress';
-import CustomCircularProgress from './CustomCircularProgress';
+import CustomCircularProgress from '../Custom Components/CustomCircularProgress';
 import { StatusBar } from 'expo-status-bar';
-import AddNewBottle from './AddNewBottle';
-import FindRefillStation from './FindRefillStation';
+import AddNewBottle from '../Custom Components/AddNewBottle';
+import FindRefillStation from '../Custom Components/FindRefillStation';
 import { useNavigation } from '@react-navigation/native';
 import { useMediaQuery } from 'react-responsive'
 

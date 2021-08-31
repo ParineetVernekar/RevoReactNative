@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions, Platform, Text, View, Button, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { styles } from './StyleSheet';
+import { styles } from '../../StyleSheet';
 import { Camera } from 'expo-camera';
 import MapView from 'react-native-maps';
 import WebView from 'react-native-webview';

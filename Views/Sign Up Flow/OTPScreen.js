@@ -1,9 +1,9 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
 import { Divider } from 'react-native-paper';
-import { styles } from './StyleSheet'
+import { styles } from '../../StyleSheet'
 import { FontAwesome5 } from '@expo/vector-icons';
-import AuthContext from './AuthContext';
+import AuthContext from '../../AuthContext';
 export default function OTPScreen({ route, navigation }) {
     const { signIn } = React.useContext(AuthContext);
 

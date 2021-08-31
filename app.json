@@ -20,14 +20,20 @@
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets."
-      }
+      },
+      "bundleIdentifier": "com.parineet.revo",
+      "buildNumber":"1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/appIcon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "permissions": ["CAMERA"]
+      "permissions": [
+        "CAMERA"
+      ],
+      "package": "com.parineet.revo",
+      "versionCode":1
     },
     "web": {
       "favicon": "./assets/appIcon.png"
