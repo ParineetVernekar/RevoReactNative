@@ -158,7 +158,6 @@ const styles =  StyleSheet.create({
       // borderRadius: 100,
 padding:10,
 height: 60,
-maxWidth: 600  
     }, modalView: {
       flex: 1
     }, enterPhoneNumberInfoText: {
@@ -318,7 +317,7 @@ maxWidth: 600
       shadowOpacity: 0.5,
       width:Dimensions.get('window').width,
       minWidth:Dimensions.get('window').width,
-
+      maxHeight:320,
       alignSelf:'center'
     }, joinViewDesktop:{
       backgroundColor:'#ffffff',
@@ -342,13 +341,15 @@ maxWidth: 600
       fontSize: 20
     },
     treeImage:{
-      position:'absolute',
-    top: 240,
-    alignSelf:'flex-end',
-    right:15,
-    width: 90, 
-    height:80,
-    resizeMode:'contain'
+      alignSelf:'flex-end',
+
+      // position:'absolute',
+    bottom: 40,
+    // alignSelf:'flex-end',
+    // right:15,
+    // width: 90, 
+    // height:80,
+    // resizeMode:'contain'
   },
   accountEndButtons:{
     color:'#3E4743',

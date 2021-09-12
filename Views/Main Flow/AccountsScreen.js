@@ -43,7 +43,7 @@ export default function AccountScreen({ navigation }) {
                                 source={require('./../../assets/settingsProfile.png')} />
                             <Text style={accountStyle.phoneNumber}>+44 748 389 7140</Text>
 
-                            <FindRefillStation destination={'BarcodeScanner'} navigation={navigation} />
+                            <FindRefillStation destination={'FindRefillStation'} navigation={navigation} />
                             <AddNewBottle destination={'BarcodeScanner'} navigation={navigation} />
                         </View>
             {isDesktopOrLaptop || (!isPortrait && isDesktopOrLaptop) ? null : <Divider style={styles.separatorStyle} />}
@@ -73,8 +73,9 @@ export default function AccountScreen({ navigation }) {
                             >
                                 <Text style={{ color: '#2FBB89', fontWeight: 'bold' }}>Learn more</Text>
                             </TouchableOpacity>
+                            <Image style={accountStyle.treeImage} source={require('./../../assets/treeCentral.png')} />
+
                         </View>
-                        <Image style={accountStyle.treeImage} source={require('./../../assets/treeCentral.png')} />
 
                     </View>
 
